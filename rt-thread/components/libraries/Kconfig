@@ -1,0 +1,65 @@
+menu "External Libraries"
+
+    config RT_USING_MODULE_V2
+        bool "Enable load dynamic module V2"
+        default n
+
+    config RT_USING_GDBSERVER
+        bool "Using GDB Server"
+      
+        select RT_USING_SAL
+        select RT_USING_LWIP
+        default n
+
+    config RT_USING_COREDUMP
+        bool "Using RT-Thread Coredump"
+      
+        default n
+
+    config RT_USING_TRACE
+        bool "Using RT-Thread Trace Agent"
+        default n
+
+    config PKG_USING_URPC
+        bool "Using RT-Thread URPC"
+        select RT_USING_VAR_EXPORT
+        select URPC_USING_CJSON
+        default n
+
+    config PKG_USING_MCF
+        bool "Using RT-Thread MCF"
+		select MCF_USING_LINK_SOCKET
+		select MCF_USING_REQ_EXEC
+        default n
+		
+	config MCF_USING_LINK_SOCKET
+		    bool "MCF_USING_LINK_SOCKET"
+		    default n
+		
+	config MCF_USING_REQ_EXEC
+		    bool "MCF_USING_REQ_EXEC"
+		    default n
+		
+    config URPC_USING_CJSON
+        bool "Using RT-Thread CJson"
+        default n
+
+    config PKG_USING_UDBD
+        bool "Using RT-Thread Debug Bridge Deamon"
+        select PKG_USING_URPC
+        select PKG_USING_MCF
+        default n
+
+    config RT_USING_GCOV
+        bool "Using RT-Thread Gcov"
+        default n
+
+    config RT_USING_GPROF
+        bool "Using RT-Thread GProf"
+        default n
+
+    config PKG_USING_VCONSOLE
+        bool "Using RT-Thread Vconsole"
+        default n
+        
+endmenu

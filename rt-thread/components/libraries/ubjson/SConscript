@@ -1,0 +1,26 @@
+Import('RTT_ROOT')
+Import('rtconfig')
+from building import *
+
+objs = []
+cwd     = GetCurrentDir()
+list    = os.listdir(cwd)
+src     = []
+CPPPATH = [cwd + '/inc']
+
+src += ['ubj_port.c']
+src += ['src/ubjr.c']
+src += ['src/ubjw.c']
+src += ['src/ubj_mem.c']
+src += ['src/ubj_helper.c']
+src += ['src/ubj_make.c']
+
+if GetDepend('UBJSON_FILE_ENABLE'):
+    src += ['src/ubj_file.c']
+
+if GetDepend('UBJSON_JSON_ENABL'):
+    src += ['src/ubj_json.c']
+
+group = DefineGroup('ubjson', src, depend = ['PKG_USING_UBJSON'], CPPPATH = CPPPATH)
+
+Return('group')

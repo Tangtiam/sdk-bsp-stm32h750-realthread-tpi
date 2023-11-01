@@ -1,0 +1,35 @@
+from building import *
+
+cwd  = GetCurrentDir()
+path = [cwd]
+
+src = Split("""
+udbd.c
+udbd_utils.c
+""")
+
+if GetDepend(['RT_USING_FAL']):
+    src += Glob('udbd_fal.c')
+
+if GetDepend(['RT_USING_DFS']):
+    src += Glob('udbd_fs.c')
+
+if GetDepend(['RT_USING_FINSH']):
+    src += Glob('udbd_shell.c')
+    src += Glob('vconsole.c')
+
+if GetDepend(['RT_USING_ULOG']):
+    src += Glob('udbd_log.c')
+
+if GetDepend(['RT_USING_RTC']):
+    src += Glob('udbd_time.c')
+
+#if GetDepend(['RT_USING_SAL']):
+#    src += Glob('udbd_sal.c')
+	
+if GetDepend(['PKG_USING_WEBCLIENT']) and GetDepend(['APP_SERVICE_USING_HTTP']):
+    src += Glob('udbd_httpclient.c')
+
+group = DefineGroup('udbd', src, depend = ['PKG_USING_UDBD'], CPPPATH = path)
+
+Return('group')

@@ -1,0 +1,30 @@
+from building import *
+
+cwd  = GetCurrentDir()
+path  = [cwd + '/inc']
+
+src = Split("""
+src/trans/mcf_pkt.c
+src/trans/mcf_trans.c
+""")
+src += Glob('src/utils/*.c')
+
+if GetDepend(['MCF_USING_SECURITY']):
+    src += Glob('src/trans/mcf_security.c')
+
+src += Glob('src/link/mcf_link.c')
+if GetDepend(['MCF_USING_LINK_UART']):
+    src += Glob('src/link/mcf_link_uart.c')
+
+if GetDepend(['MCF_USING_LINK_USB']):
+    src += Glob('src/link/mcf_link_usb.c')
+
+if GetDepend(['MCF_USING_LINK_SOCKET']):
+    src += Glob('src/link/mcf_link_socket.c')
+
+if GetDepend(['MCF_USING_SAMPLES']):
+    src += Glob('samples/*.c')
+
+group = DefineGroup('MCF', src, depend = ['PKG_USING_MCF'], CPPPATH = path)
+
+Return('group')

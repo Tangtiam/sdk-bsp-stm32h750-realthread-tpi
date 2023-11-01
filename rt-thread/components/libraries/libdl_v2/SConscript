@@ -1,0 +1,12 @@
+from building import *
+Import('rtconfig')
+
+src = Glob('*.c') + Glob('arch/*.c')
+cwd = GetCurrentDir()
+group   = []
+CPPPATH = [cwd]
+
+if rtconfig.PLATFORM == 'gcc':
+    group = DefineGroup('libdl', src, depend = ['RT_USING_MODULE','RT_USING_MODULE_V2','RT_USING_DFS'], CPPPATH = CPPPATH)
+
+Return('group')

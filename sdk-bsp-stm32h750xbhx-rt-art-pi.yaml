@@ -1,0 +1,112 @@
+board:
+  buy_url_cn: N/A
+  buy_url_global: N/A
+  debug_interface: SWD
+  debugger: ST-LINK
+  description_en: N/A
+  description_zh: N/A
+  emulator_machine: ''
+  large_image: documents/images/No-image.c08ef803.png
+  name: STM32H750XBHX-RT-ART-PI
+  price_cn: N/A CNY
+  price_global: N/A USD
+  sale_contact_cn: N/A
+  sale_contact_global: N/A
+  small_image: documents/images/No-image.c08ef803.png
+  vendor: ReadThread
+  version: 1.3.2
+chip:
+  chip_name: STM32H750XBHX
+  clock_source: HSE
+  device_vendor: STMicroelectronics
+  family_name: STM32
+  rx_name: PA10
+  series_name: STM32H7
+  source_freq: '8000000'
+  sub_series_name: STM32H750
+  target_freq: '240000000'
+  tx_name: PA9
+  uart_name: UART1
+docs: []
+example_projects:
+- builtin_files:
+  - files_and_folders:
+    - .config
+    - .cproject
+    - .gitignore
+    - .project
+    - .settings
+    - applications
+    - artpi_bootloader.bin
+    - board
+    - EventRecorderStub.scvd
+    - figures
+    - Kconfig
+    - libraries
+    - makefile.targets
+    - project.ewp
+    - project.eww
+    - project.uvoptx
+    - project.uvprojx
+    - README.md
+    - rt-thread
+    - rtconfig.h
+    - rtconfig.py
+    - rtconfig_preinc.h
+    - SConscript
+    - SConstruct
+    - template.ewp
+    - template.eww
+    - template.uvoptx
+    - template.uvprojx
+    source_path_offset: project_1
+    target_path_offset: ''
+  external_files: []
+  project_description: ''
+  project_name: artpi_b
+  project_type: rt-thread|@full|@4.0.2
+features:
+- w
+features_zh:
+- 无
+pkg_type: Board_Support_Packages
+pkg_vendor: ttt
+pkg_version: 1.3.2
+template_projects:
+- builtin_files:
+  - files_and_folders:
+    - .config
+    - .cproject
+    - .gitignore
+    - .project
+    - .settings
+    - applications
+    - artpi_bootloader.bin
+    - board
+    - EventRecorderStub.scvd
+    - figures
+    - Kconfig
+    - libraries
+    - makefile.targets
+    - project.ewp
+    - project.eww
+    - project.uvoptx
+    - project.uvprojx
+    - README.md
+    - rt-thread
+    - rtconfig.h
+    - rtconfig.py
+    - rtconfig_preinc.h
+    - SConscript
+    - SConstruct
+    - template.ewp
+    - template.eww
+    - template.uvoptx
+    - template.uvprojx
+    source_path_offset: project_0
+    target_path_offset: ''
+  external_files: []
+  project_description: ''
+  project_name: artpi_b
+  project_type: rt-thread|@full|@4.0.2
+yaml_version: 3

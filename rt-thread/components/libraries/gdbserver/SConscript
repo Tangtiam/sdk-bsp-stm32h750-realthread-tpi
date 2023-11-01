@@ -1,0 +1,23 @@
+# RT-Thread building script for component
+import os
+from building import *
+
+cwd = GetCurrentDir()
+src = Glob('*.c')
+
+CPPPATH = [
+    cwd,
+    os.path.join(cwd, "gdbserver"),
+]
+
+if GetDepend('ARCH_ARM_CORTEX_M'):
+    src += ['arch/cortexm/hw_breakpoint.c']
+    CPPPATH += [os.path.join(cwd, "arch","cortexm")]
+
+if GetDepend('ARCH_ARM_CORTEX_A'):
+    src += ['arch/arm/hw_breakpoint.c']
+    CPPPATH += [os.path.join(cwd, "arch","arm")] 
+
+group = DefineGroup('gdbserver', src, depend = ['RT_USING_GDBSERVER','RT_USING_MODULE','RT_USING_SAL'], CPPPATH = CPPPATH)
+
+Return('group')
